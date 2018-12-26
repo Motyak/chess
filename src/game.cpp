@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 
 //sudo apt-get install libsfml-dev
-//g++ -o ../bin/game game.cpp -lsfml-graphics -lsfml-system -lsfml-window&&../bin/game
+//g++ -o bin/game src/game.cpp -lsfml-graphics -lsfml-system -lsfml-window&&bin/game
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(480,480),"SFML Tutorial",sf::Style::Close | 
@@ -55,7 +55,7 @@ int main()
 
 //pions noirs
 sf::Image imgPionNoir;
-imgPionNoir.loadFromFile("img/pionNoir.png");
+imgPionNoir.loadFromFile("../ressources/img/pionNoir.png");
 sf::Texture txPionNoir;
 txPionNoir.loadFromImage(imgPionNoir);
 sf::Sprite spPionNoir;
@@ -70,7 +70,7 @@ for(unsigned i=1;i<=8;++i)
 
 //pions blancs
 sf::Image imgPionBlanc;
-imgPionBlanc.loadFromFile("img/pionBlanc.png");
+imgPionBlanc.loadFromFile("../ressources/img/pionBlanc.png");
 sf::Texture txPionBlanc;
 txPionBlanc.loadFromImage(imgPionBlanc);
 sf::Sprite spPionBlanc;
@@ -85,7 +85,7 @@ for(unsigned i=1;i<=8;++i)
 
 //tours blanc
 sf::Image imgTourBlanc;
-imgTourBlanc.loadFromFile("img/TourBlanc.png");
+imgTourBlanc.loadFromFile("../ressources/img/TourBlanc.png");
 sf::Texture txTourBlanc;
 txTourBlanc.loadFromImage(imgTourBlanc);
 sf::Sprite spTourBlanc;
@@ -97,7 +97,7 @@ window.draw(spTourBlanc);
 
 //cavaliers blanc
 sf::Image imgCavalierBlanc;
-imgCavalierBlanc.loadFromFile("img/CavalierBlanc.png");
+imgCavalierBlanc.loadFromFile("../ressources/img/CavalierBlanc.png");
 sf::Texture txCavalierBlanc;
 txCavalierBlanc.loadFromImage(imgCavalierBlanc);
 sf::Sprite spCavalierBlanc;
@@ -109,7 +109,7 @@ window.draw(spCavalierBlanc);
 
 //fous blanc
 sf::Image imgFouBlanc;
-imgFouBlanc.loadFromFile("img/FouBlanc.png");
+imgFouBlanc.loadFromFile("../ressources/img/FouBlanc.png");
 sf::Texture txFouBlanc;
 txFouBlanc.loadFromImage(imgFouBlanc);
 sf::Sprite spFouBlanc;
@@ -121,7 +121,7 @@ window.draw(spFouBlanc);
 
 //reine blanc
 sf::Image imgReineBlanc;
-imgReineBlanc.loadFromFile("img/ReineBlanc.png");
+imgReineBlanc.loadFromFile("../ressources/img/ReineBlanc.png");
 sf::Texture txReineBlanc;
 txReineBlanc.loadFromImage(imgReineBlanc);
 sf::Sprite spReineBlanc;
@@ -131,7 +131,7 @@ window.draw(spReineBlanc);
 
 //roi blanc
 sf::Image imgRoiBlanc;
-imgRoiBlanc.loadFromFile("img/RoiBlanc.png");
+imgRoiBlanc.loadFromFile("../ressources/img/RoiBlanc.png");
 sf::Texture txRoiBlanc;
 txRoiBlanc.loadFromImage(imgRoiBlanc);
 sf::Sprite spRoiBlanc;
@@ -141,7 +141,7 @@ window.draw(spRoiBlanc);
 
 //tours Noir
 sf::Image imgTourNoir;
-imgTourNoir.loadFromFile("img/TourNoir.png");
+imgTourNoir.loadFromFile("../ressources/img/TourNoir.png");
 sf::Texture txTourNoir;
 txTourNoir.loadFromImage(imgTourNoir);
 sf::Sprite spTourNoir;
@@ -153,7 +153,7 @@ window.draw(spTourNoir);
 
 //cavaliers Noir
 sf::Image imgCavalierNoir;
-imgCavalierNoir.loadFromFile("img/CavalierNoir.png");
+imgCavalierNoir.loadFromFile("../ressources/img/CavalierNoir.png");
 sf::Texture txCavalierNoir;
 txCavalierNoir.loadFromImage(imgCavalierNoir);
 sf::Sprite spCavalierNoir;
@@ -165,7 +165,7 @@ window.draw(spCavalierNoir);
 
 //fous Noir
 sf::Image imgFouNoir;
-imgFouNoir.loadFromFile("img/FouNoir.png");
+imgFouNoir.loadFromFile("../ressources/img/FouNoir.png");
 sf::Texture txFouNoir;
 txFouNoir.loadFromImage(imgFouNoir);
 sf::Sprite spFouNoir;
@@ -177,7 +177,7 @@ window.draw(spFouNoir);
 
 //reine Noir
 sf::Image imgReineNoir;
-imgReineNoir.loadFromFile("img/ReineNoir.png");
+imgReineNoir.loadFromFile("../ressources/img/ReineNoir.png");
 sf::Texture txReineNoir;
 txReineNoir.loadFromImage(imgReineNoir);
 sf::Sprite spReineNoir;
@@ -187,7 +187,7 @@ window.draw(spReineNoir);
 
 //roi Noir
 sf::Image imgRoiNoir;
-imgRoiNoir.loadFromFile("img/RoiNoir.png");
+imgRoiNoir.loadFromFile("../ressources/img/RoiNoir.png");
 sf::Texture txRoiNoir;
 txRoiNoir.loadFromImage(imgRoiNoir);
 sf::Sprite spRoiNoir;

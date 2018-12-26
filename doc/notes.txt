@@ -8,3 +8,31 @@ Convertir "A5B8" en déplacer(A5,B8) en fouBlancG.deplacer(B8)
 Gestion du tour par tour (avec un modulo)
 Soit on fait des constantes pour lier les coordonnées aux positions x,y,
 soit on fait une fonction de conversion dans les deux sens (donc 2 quoi)
+
+Pour le dessin des cases, faire les cases blanches puis les cases noires pour pas avoir à
+instancier caseBlanche et caseNoire (qu'une seule) ou pour avoir avoir des setColor(..) 
+toutes les 2s
+
+faire une console joueur et une console dev
+
+Soit on fait une classe par type de piece et on implémente leur propre méthode pour se déplacer
+(virtual), soit on fait juste une classe Piece avec un attr TypePiece, et une méthode
+déplacer qui prend en parametre x et y (par rapport aux cases), et selon son type
+on voit si le déplacement est faisable.
+
+Faire une conversion x,y de coordonées pixels vers coord cases, plus intuitif.
+Convertir case en pixel et inversement. (1;1)(8;8)
+
+
+Inutile de faire autant d'objets piece que de piece (avec les images et tout ce qui est 
+graphique). Il faut mieux faire les pieces avec le moins d'infos possibles puis
+faire une méthode pour convertir le plateau en dessin graphique avec du coup
+une seule instance graphique qu'on modifie et recopie, etc...
+Faire une classe pour l'interface et une classe pour les mécanismes internes (le jeu)
+
+deplacer(2,-1)  //deplacer(short x,short y), avec x et y en nb de cases
+
+Faire une classe perso fenetre qui hérite de sf::RenderWindow, avec constante 
+Fenetre::DIMENSION=Case::TAILLE*Plateau::DIMENSION
+
+optimiser placement des pieces, moins de lignes, factoriser les param/infos importantes
