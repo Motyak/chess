@@ -1,0 +1,10 @@
+Faire le programme jeu avec un tableau de cases comme plateau, déplacement à faire depuis 
+la console (ex: A5B8)
+Une fois terminé, le plateau graphique se rafraichit par rapport au tableau.
+Verifier que la commande soit valide, vérifier que le coup soit valide.
+Verifier si la partie est terminé. (while partie non terminé)
+
+Convertir "A5B8" en déplacer(A5,B8) en fouBlancG.deplacer(B8)
+Gestion du tour par tour (avec un modulo)
+Soit on fait des constantes pour lier les coordonnées aux positions x,y,
+soit on fait une fonction de conversion dans les deux sens (donc 2 quoi)
