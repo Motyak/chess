@@ -36,7 +36,8 @@ Case::Case() : sf::RectangleShape(sf::Vector2f(Case::TAILLE,Case::TAILLE)),
 
 Case::~Case()
 {
-    ;
+    if(this->piece)
+        delete(this->piece);
 }
 
 Piece* Case::getPiece()const
