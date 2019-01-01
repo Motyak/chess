@@ -6,7 +6,7 @@ Piece::Piece()
     ;
 }
 
-Piece::Piece(std::string imgPath)
+Piece::Piece(CouleurPiece couleur,TypePiece type,std::string imgPath) : couleur(couleur),type(type)
 {
     this->setSprite(imgPath);
 }
@@ -26,6 +26,26 @@ void Piece::setSprite(std::string imgPath)
 sf::Sprite* Piece::getSprite()
 {
     return &this->sprite;
+}
+
+CouleurPiece Piece::getCouleur()const
+{
+    return this->couleur;
+}
+
+TypePiece Piece::getType()const
+{
+    return this->type;
+}
+
+void Piece::setCouleur(CouleurPiece couleur)
+{
+    this->couleur=couleur;
+}
+
+void Piece::setType(TypePiece type)
+{
+    this->type=type;
 }
 
 Case::Case() : sf::RectangleShape(sf::Vector2f(Case::TAILLE,Case::TAILLE)),
@@ -138,6 +158,8 @@ void Plateau::dessinerPions()
     for(i=0;i<this->cases.size();++i)
     {
         this->cases.at(i).at(1)=new Case();
+        this->cases.at(i).at(1)->getPiece()->setCouleur(CouleurPiece::Noir);
+        this->cases.at(i).at(1)->getPiece()->setType(TypePiece::Pion);
         this->cases.at(i).at(1)->getPiece()->setSprite(PION_NOIR_IMG);
         this->cases.at(i).at(1)->getPiece()->getSprite()->setPosition(posX,Case::TAILLE);
         this->fenetre->draw(*this->cases.at(i).at(1)->getPiece()->getSprite());
@@ -148,6 +170,8 @@ void Plateau::dessinerPions()
     for(i=0;i<this->cases.size();++i)
     {
         this->cases.at(i).at(1)=new Case();
+        this->cases.at(i).at(1)->getPiece()->setCouleur(CouleurPiece::Blanc);
+        this->cases.at(i).at(1)->getPiece()->setType(TypePiece::Pion);
         this->cases.at(i).at(1)->getPiece()->setSprite(PION_BLANC_IMG);
         this->cases.at(i).at(1)->getPiece()->getSprite()->setPosition(posX,6*Case::TAILLE);
         this->fenetre->draw(*this->cases.at(i).at(1)->getPiece()->getSprite());
@@ -158,21 +182,29 @@ void Plateau::dessinerPions()
 void Plateau::dessinerFous()
 {
     this->cases.at(2).at(0)=new Case();
+    this->cases.at(2).at(0)->getPiece()->setCouleur(CouleurPiece::Noir);
+    this->cases.at(2).at(0)->getPiece()->setType(TypePiece::Fou);
     this->cases.at(2).at(0)->getPiece()->setSprite(FOU_NOIR_IMG);
     this->cases.at(2).at(0)->getPiece()->getSprite()->setPosition(2*Case::TAILLE,0*Case::TAILLE);
     this->fenetre->draw(*this->cases.at(2).at(0)->getPiece()->getSprite());
 
     this->cases.at(5).at(0)=new Case();
+    this->cases.at(5).at(0)->getPiece()->setCouleur(CouleurPiece::Noir);
+    this->cases.at(5).at(0)->getPiece()->setType(TypePiece::Fou);
     this->cases.at(5).at(0)->getPiece()->setSprite(FOU_NOIR_IMG);
     this->cases.at(5).at(0)->getPiece()->getSprite()->setPosition(5*Case::TAILLE,0*Case::TAILLE);
     this->fenetre->draw(*this->cases.at(5).at(0)->getPiece()->getSprite());
 
     this->cases.at(2).at(7)=new Case();
+    this->cases.at(2).at(7)->getPiece()->setCouleur(CouleurPiece::Blanc);
+    this->cases.at(2).at(7)->getPiece()->setType(TypePiece::Fou);
     this->cases.at(2).at(7)->getPiece()->setSprite(FOU_BLANC_IMG);
     this->cases.at(2).at(7)->getPiece()->getSprite()->setPosition(2*Case::TAILLE,7*Case::TAILLE);
     this->fenetre->draw(*this->cases.at(2).at(7)->getPiece()->getSprite());
 
     this->cases.at(5).at(7)=new Case();
+    this->cases.at(5).at(7)->getPiece()->setCouleur(CouleurPiece::Blanc);
+    this->cases.at(5).at(7)->getPiece()->setType(TypePiece::Fou);
     this->cases.at(5).at(7)->getPiece()->setSprite(FOU_BLANC_IMG);
     this->cases.at(5).at(7)->getPiece()->getSprite()->setPosition(5*Case::TAILLE,7*Case::TAILLE);
     this->fenetre->draw(*this->cases.at(5).at(7)->getPiece()->getSprite());
@@ -181,21 +213,29 @@ void Plateau::dessinerFous()
 void Plateau::dessinerCavaliers()
 {
     this->cases.at(1).at(0)=new Case();
+    this->cases.at(1).at(0)->getPiece()->setCouleur(CouleurPiece::Noir);
+    this->cases.at(1).at(0)->getPiece()->setType(TypePiece::Cavalier);
     this->cases.at(1).at(0)->getPiece()->setSprite(CAVALIER_NOIR_IMG);
     this->cases.at(1).at(0)->getPiece()->getSprite()->setPosition(1*Case::TAILLE,0*Case::TAILLE);
     this->fenetre->draw(*this->cases.at(1).at(0)->getPiece()->getSprite());
 
     this->cases.at(6).at(0)=new Case();
+    this->cases.at(6).at(0)->getPiece()->setCouleur(CouleurPiece::Noir);
+    this->cases.at(6).at(0)->getPiece()->setType(TypePiece::Cavalier);
     this->cases.at(6).at(0)->getPiece()->setSprite(CAVALIER_NOIR_IMG);
     this->cases.at(6).at(0)->getPiece()->getSprite()->setPosition(6*Case::TAILLE,0*Case::TAILLE);
     this->fenetre->draw(*this->cases.at(6).at(0)->getPiece()->getSprite());
 
     this->cases.at(1).at(7)=new Case();
+    this->cases.at(1).at(7)->getPiece()->setCouleur(CouleurPiece::Blanc);
+    this->cases.at(1).at(7)->getPiece()->setType(TypePiece::Cavalier);
     this->cases.at(1).at(7)->getPiece()->setSprite(CAVALIER_BLANC_IMG);
     this->cases.at(1).at(7)->getPiece()->getSprite()->setPosition(1*Case::TAILLE,7*Case::TAILLE);
     this->fenetre->draw(*this->cases.at(1).at(7)->getPiece()->getSprite());
 
     this->cases.at(6).at(7)=new Case();
+    this->cases.at(6).at(7)->getPiece()->setCouleur(CouleurPiece::Blanc);
+    this->cases.at(6).at(7)->getPiece()->setType(TypePiece::Cavalier);
     this->cases.at(6).at(7)->getPiece()->setSprite(CAVALIER_BLANC_IMG);
     this->cases.at(6).at(7)->getPiece()->getSprite()->setPosition(6*Case::TAILLE,7*Case::TAILLE);
     this->fenetre->draw(*this->cases.at(6).at(7)->getPiece()->getSprite());
@@ -204,21 +244,29 @@ void Plateau::dessinerCavaliers()
 void Plateau::dessinerTours()
 {
     this->cases.at(0).at(0)=new Case();
+    this->cases.at(0).at(0)->getPiece()->setCouleur(CouleurPiece::Noir);
+    this->cases.at(0).at(0)->getPiece()->setType(TypePiece::Tour);
     this->cases.at(0).at(0)->getPiece()->setSprite(TOUR_NOIR_IMG);
     this->cases.at(0).at(0)->getPiece()->getSprite()->setPosition(0*Case::TAILLE,0*Case::TAILLE);
     this->fenetre->draw(*this->cases.at(0).at(0)->getPiece()->getSprite());
 
     this->cases.at(7).at(0)=new Case();
+    this->cases.at(7).at(0)->getPiece()->setCouleur(CouleurPiece::Noir);
+    this->cases.at(7).at(0)->getPiece()->setType(TypePiece::Fou);
     this->cases.at(7).at(0)->getPiece()->setSprite(TOUR_NOIR_IMG);
     this->cases.at(7).at(0)->getPiece()->getSprite()->setPosition(7*Case::TAILLE,0*Case::TAILLE);
     this->fenetre->draw(*this->cases.at(7).at(0)->getPiece()->getSprite());
 
     this->cases.at(0).at(7)=new Case();
+    this->cases.at(0).at(7)->getPiece()->setCouleur(CouleurPiece::Blanc);
+    this->cases.at(0).at(7)->getPiece()->setType(TypePiece::Fou);
     this->cases.at(0).at(7)->getPiece()->setSprite(TOUR_BLANC_IMG);
     this->cases.at(0).at(7)->getPiece()->getSprite()->setPosition(0*Case::TAILLE,7*Case::TAILLE);
     this->fenetre->draw(*this->cases.at(0).at(7)->getPiece()->getSprite());
 
     this->cases.at(7).at(7)=new Case();
+    this->cases.at(7).at(7)->getPiece()->setCouleur(CouleurPiece::Blanc);
+    this->cases.at(7).at(7)->getPiece()->setType(TypePiece::Fou);
     this->cases.at(7).at(7)->getPiece()->setSprite(TOUR_BLANC_IMG);
     this->cases.at(7).at(7)->getPiece()->getSprite()->setPosition(7*Case::TAILLE,7*Case::TAILLE);
     this->fenetre->draw(*this->cases.at(7).at(7)->getPiece()->getSprite());
@@ -227,11 +275,15 @@ void Plateau::dessinerTours()
 void Plateau::dessinerReines()
 {
     this->cases.at(3).at(0)=new Case();
+    this->cases.at(3).at(0)->getPiece()->setCouleur(CouleurPiece::Noir);
+    this->cases.at(3).at(0)->getPiece()->setType(TypePiece::Reine);
     this->cases.at(3).at(0)->getPiece()->setSprite(REINE_NOIR_IMG);
     this->cases.at(3).at(0)->getPiece()->getSprite()->setPosition(3*Case::TAILLE,0*Case::TAILLE);
     this->fenetre->draw(*this->cases.at(3).at(0)->getPiece()->getSprite());
 
     this->cases.at(3).at(7)=new Case();
+    this->cases.at(3).at(7)->getPiece()->setCouleur(CouleurPiece::Blanc);
+    this->cases.at(3).at(7)->getPiece()->setType(TypePiece::Reine);
     this->cases.at(3).at(7)->getPiece()->setSprite(REINE_BLANC_IMG);
     this->cases.at(3).at(7)->getPiece()->getSprite()->setPosition(3*Case::TAILLE,7*Case::TAILLE);
     this->fenetre->draw(*this->cases.at(3).at(7)->getPiece()->getSprite());
@@ -240,11 +292,15 @@ void Plateau::dessinerReines()
 void Plateau::dessinerRois()
 {
     this->cases.at(4).at(0)=new Case();
+    this->cases.at(4).at(0)->getPiece()->setCouleur(CouleurPiece::Noir);
+    this->cases.at(4).at(0)->getPiece()->setType(TypePiece::Roi);
     this->cases.at(4).at(0)->getPiece()->setSprite(ROI_NOIR_IMG);
     this->cases.at(4).at(0)->getPiece()->getSprite()->setPosition(4*Case::TAILLE,0*Case::TAILLE);
     this->fenetre->draw(*this->cases.at(4).at(0)->getPiece()->getSprite());
 
     this->cases.at(4).at(7)=new Case();
+    this->cases.at(4).at(7)->getPiece()->setCouleur(CouleurPiece::Blanc);
+    this->cases.at(4).at(7)->getPiece()->setType(TypePiece::Roi);
     this->cases.at(4).at(7)->getPiece()->setSprite(ROI_BLANC_IMG);
     this->cases.at(4).at(7)->getPiece()->getSprite()->setPosition(4*Case::TAILLE,7*Case::TAILLE);
     this->fenetre->draw(*this->cases.at(4).at(7)->getPiece()->getSprite());
@@ -259,6 +315,7 @@ int main()
     sf::RenderWindow* fenetre=new sf::RenderWindow(sf::VideoMode(480,480),"Chess",
         sf::Style::Close | sf::Style::Titlebar);
     Plateau plateau(fenetre);
+    //sf::RectangleShape test(sf::Vector2f(100,100));//
 
     while(fenetre->isOpen())
     {
@@ -267,7 +324,13 @@ int main()
         {
             if(evt.type==sf::Event::Closed)
                 fenetre->close();
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            {
+                //test.setPosition(sf::Mouse::getPosition().x,sf::Mouse::getPosition().y);
+                //fenetre->draw(test);
+            }
         }
+        //fenetre->clear();//
         fenetre->display();
     }
 

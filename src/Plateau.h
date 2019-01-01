@@ -7,25 +7,40 @@
 #define PLATEAU_H
 #ifdef PLATEAU_H
 
-/*enum class Couleur
+enum class CouleurPiece
 {
     Blanc,
     Noir
-}*/
+};
+
+enum class TypePiece
+{
+    Roi,
+    Reine,
+    Fou,
+    Tour,
+    Cavalier,
+    Pion
+};
 
 class Piece
 {
     sf::Image image;
     sf::Texture texture;
     sf::Sprite sprite;
-    //Couleur couleur;
+    CouleurPiece couleur;
+    TypePiece type;
 
     public:
         Piece();
-        Piece(std::string imgPath);
+        Piece(CouleurPiece couleur,TypePiece type,std::string imgPath);
         ~Piece();
         void setSprite(std::string imgPath);
         sf::Sprite* getSprite();
+        CouleurPiece getCouleur()const;
+        void setCouleur(CouleurPiece couleur);
+        TypePiece getType()const;
+        void setType(TypePiece type);
 };
 
 class Case : public sf::RectangleShape
@@ -42,6 +57,7 @@ class Plateau
 {
     sf::RenderWindow* fenetre;
     std::array<std::array<Case*,8>,8>cases;
+
     const sf::Color COULEUR_MARRON=sf::Color(112,72,60);
     const sf::Color COULEUR_BLANC=sf::Color::White;
     static const unsigned short DIMENSION=8;
